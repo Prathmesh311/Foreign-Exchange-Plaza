@@ -23,9 +23,15 @@ spec:
         app: currency-conversion
     spec:
       containers:
-      - image: prathmesh311/mmv3-currency-conversion-service:0.0.11-SNAPSHOT
+      - image: prathmesh311/mmv3-currency-conversion-service:0.0.12-SNAPSHOT
         imagePullPolicy: IfNotPresent
         name: mmv2-currency-conversion-service
+        envFrom:
+          - configMapRef:
+              name: currency-conversion
+#        env:
+#         - name: CURRENCY_EXCHANGE_URI
+#           value: http://currency-exchange
       restartPolicy: Always
       
 ---
@@ -45,4 +51,13 @@ spec:
     app: currency-conversion
   sessionAffinity: None
   type: LoadBalancer
-  
+
+---
+apiVersion: v1
+data:
+  CURRENCY_EXCHANGE_URI: http://currency-exchange
+kind: ConfigMap
+metadata:
+  name: currency-conversion
+  namespace: default
+ 
