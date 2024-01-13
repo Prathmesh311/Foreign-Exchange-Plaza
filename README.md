@@ -1,4 +1,4 @@
-# Microservices with Spring Cloud Repository 🚀
+# Foreign Exchange Plaza (Microservices)🚀
 
 Welcome to the Microservices with Spring Cloud Repository! This Git repository contains a set of microservices developed using Spring Boot and Spring Cloud, making it easy to build and deploy scalable applications in a distributed architecture.
 
